@@ -6,18 +6,77 @@ import { TableComponent } from './TableComponent';
 
 export const Screen1 = ({ isPage, columns, data }) => {
 
+    const user = [
+        {
+            key: '1',
+            name: 'John Brown',
+            age: 32,
+            address: 'New York No. 1 Lake Park',
+            email: 'john@gmail.com',
+            role: 'Frontend Developer',
+            experience: 2,
+        },
+        {
+            key: '2',
+            name: 'Jim Green',
+            age: 42,
+            address: 'London No. 1 Lake Park',
+            email: 'jim@gmail.com',
+            role: 'Backend Developer',
+            experience: 1,
+        },
+        {
+            key: '3',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sydney No. 1 Lake Park',
+            email: 'joe@gmail.com',
+            role: 'FullStack Developer',
+            experience: 1,
+        },
+        {
+            key: '4',
+            name: 'John Wick',
+            age: 38,
+            address: 'New York No. 1 Lake Park',
+            email: 'wick@gmail.com',
+            role: 'FullStack Developer',
+            experience: 2,
+        },
+        {
+            key: '5',
+            name: 'Jamie Black',
+            age: 44,
+            address: 'Sydney No. 1 Lake Park',
+            email: 'jamie@gmail.com',
+            role: 'Frontend Developer',
+            experience: 3,
+        },
+        {
+            key: '6',
+            name: 'Jame Black',
+            age: 44,
+            address: 'London No. 1 Lake Park',
+            email: 'jame@gmail.com',
+            role: 'FullStack Developer',
+            experience: 1,
+        },
+    ]
+
     const [search, setSearch] = useState("")
+
+
     return (
         <div>
             <div className='search'>
                 <Search
                     placeholder="input search text"
                     style={{ width: 200 }}
-                    onSearch={(value) => {
-                        setSearch(value)
-                    }}
+                    // onSearch={(value) => {
+                    //     setSearch(value)
+                    // }}
                     onChange={(e) => {
-                        setSearch(e.target.value)
+                        setSearch(e.target.value.toLowerCase())
                     }} />
             </div>
             <TableComponent
@@ -26,7 +85,6 @@ export const Screen1 = ({ isPage, columns, data }) => {
                     {
                         title: 'Name',
                         dataIndex: 'name',
-                        filteredValue: [search],
                         filterDropdown: ({
                             setSelectedKeys,
                             selectedKeys,
@@ -317,62 +375,10 @@ export const Screen1 = ({ isPage, columns, data }) => {
                         },
                     }
                 ]}
-                data={[
-                    {
-                        key: '1',
-                        name: 'John Brown',
-                        age: 32,
-                        address: 'New York No. 1 Lake Park',
-                        email: 'john@gmail.com',
-                        role: 'Frontend Developer',
-                        experience: 2,
-                    },
-                    {
-                        key: '2',
-                        name: 'Jim Green',
-                        age: 42,
-                        address: 'London No. 1 Lake Park',
-                        email: 'jim@gmail.com',
-                        role: 'Backend Developer',
-                        experience: 1,
-                    },
-                    {
-                        key: '3',
-                        name: 'Joe Black',
-                        age: 32,
-                        address: 'Sydney No. 1 Lake Park',
-                        email: 'joe@gmail.com',
-                        role: 'FullStack Developer',
-                        experience: 1,
-                    },
-                    {
-                        key: '4',
-                        name: 'John Wick',
-                        age: 38,
-                        address: 'New York No. 1 Lake Park',
-                        email: 'wick@gmail.com',
-                        role: 'FullStack Developer',
-                        experience: 2,
-                    },
-                    {
-                        key: '5',
-                        name: 'Jamie Black',
-                        age: 44,
-                        address: 'Sydney No. 1 Lake Park',
-                        email: 'jamie@gmail.com',
-                        role: 'Frontend Developer',
-                        experience: 3,
-                    },
-                    {
-                        key: '6',
-                        name: 'Jame Black',
-                        age: 44,
-                        address: 'London No. 1 Lake Park',
-                        email: 'jame@gmail.com',
-                        role: 'FullStack Developer',
-                        experience: 1,
-                    },
-                ]}
+                data=
+                {
+                    user
+                }
             />
         </div>
     )
