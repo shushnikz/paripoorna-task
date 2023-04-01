@@ -6,46 +6,23 @@ import { TableComponent } from './TableComponent';
 
 export const Screen2 = () => {
 
-    const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const start = () => {
-        setLoading(true);
-        // ajax request after empty completing
-        setTimeout(() => {
-            setSelectedRowKeys([]);
-            setLoading(false);
-        }, 1000);
-    };
-    const onSelectChange = (newSelectedRowKeys) => {
-        console.log('selectedRowKeys changed: ', newSelectedRowKeys);
-        setSelectedRowKeys(newSelectedRowKeys);
-    };
-    const rowSelection = {
-        selectedRowKeys,
-        onChange: onSelectChange,
-    };
-    const hasSelected = selectedRowKeys.length > 0;
+    const handleClick = () => {
+        window.location.reload()
+    }
 
     return (
         <div>
             <div
                 style={{
-                    marginBottom: 16,
+                    margin: 16,
+                    textAlign: 'center'
                 }}
             >
-                <Button type="primary" onClick={start} disabled={!hasSelected} loading={loading}>
-                    Reload
+                <Button onClick={handleClick} >
+                    Refresh
                 </Button>
-                <span
-                    style={{
-                        marginLeft: 8,
-                    }}
-                >
-                    {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
-                </span>
             </div>
             <TableComponent
-                rowSelection={rowSelection}
                 isPage={false}
                 columns={[
                     {
